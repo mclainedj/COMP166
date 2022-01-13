@@ -20,7 +20,7 @@ int main(void)
 {
 
     //variable and array init
-    
+
     double price, tendered, changeDue, changeRounded;
     int changeInt, changeMod, userInput;
     int change[8] = {0, 0, 0, 0, 0, 0, 0, 0}; //Array for coin denominations: $20, $10, $5, $2, $1, $0.25, $0.10, $0.05
@@ -33,8 +33,15 @@ int main(void)
         printf("Please enter price of item to the nearest whole cent. Note: any numbers entered after the hundreths place will be truncated: \n");
         scanf("%lf", &price);
         price = floorl(price * 100) / 100; //Multiplies price entered to account for cents, then rounds down to the nearest integer before converting back into the proper currency format.
-        printf("Amount entered was: %.2f \n If this is correct, enter 1 \n", price);
-        scanf("%i", &userInput);
+        if (price < 0)
+        { //Error check to ensure a positive number is entered.
+            printf("Negative amount entered, please enter a positive number. \n");
+        }
+        else
+        {
+            printf("Amount entered was: %.2f \nIf this is correct, enter 1 \n", price);
+            scanf("%i", &userInput);
+        }
     }
     userInput = 0;
     while (userInput != 1)
@@ -42,8 +49,15 @@ int main(void)
         printf("Please enter amount tendered to the nearest whole cent. Note: any numbers entered after the hundreths place will be truncated: \n");
         scanf("%lf", &tendered);
         tendered = floorl(tendered * 100) / 100;
-        printf("Amount entered was: %.2f \n If this is correct, enter 1 \n", tendered);
-        scanf("%i", &userInput);
+        if (tendered < 0)
+        { //Error check to ensure a positive number is entered.
+            printf("Negative amount entered, please enter a positive number. \n");
+        }
+        else
+        {
+            printf("Amount entered was: %.2f \nIf this is correct, enter 1 \n", tendered);
+            scanf("%i", &userInput);
+        }
     }
     changeDue = (tendered - price) * 100; //Converts to integer value
     changeMod = (int)changeDue % 10;      //Value for remainder to decide whether to round up, down or to 5.
