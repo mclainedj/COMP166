@@ -51,8 +51,8 @@ int main(void) {
             scanf("%s", &userInput);
         }
     }
-    changeDue = (tendered - price) * 100; //Converts to integer value
-    changeMod = (int) changeDue % 10; //Value for remainder to decide whether to round up, down or to 5.
+    changeDue = roundl((tendered - price)*100); //Converts to integer value
+    changeMod = (int) (changeDue) % 10; //Value for remainder to decide whether to round up, down or to 5.
     if (changeMod >= 3 && changeMod <= 7) { //If cent value ends in 3-7, will round to 5.
         changeRounded = floorl(changeDue / 10) / 10 + 0.05;
     } else { //Otherwise rounds to the nearest value of 10.
