@@ -36,7 +36,7 @@ int main(void) {
             printf("Negative amount entered, please enter a positive number. \n");
         } else {
             printf("Amount entered was: %.2f \nIf this is correct, enter 1, otherwise enter any other character. \n", price);
-            scanf("%c", &userInput);
+            scanf("%s", &userInput);
         }
     }
     userInput = 0;
