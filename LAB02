@@ -1,0 +1,30 @@
+/* 
+ * Class: COMP 166
+ * Lab: 02
+ * Author: Mclaine De Jesus
+ * Student Number: C0417594
+ * 
+ * Description: This program takes a user inputted temperature in either F, K, or C and states all the conversions for the stated temp.
+ *
+ * Created on January 12, 2022, 8:42 AM
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+/*
+ * 
+ */
+int main(void) {
+    //Variable and array init
+    double inputTemp, kelvin, faren, celc;
+    char type;
+    char lineArr[11];
+    
+    printf("Enter temperature followed by either F, C or K. Example: 45.7F \n");
+    scanf("%lf%10s", &inputTemp, lineArr);
+    printf("%lf \n%c\n", inputTemp, lineArr[0]);
+    return (EXIT_SUCCESS);
+}
+
